@@ -46,7 +46,7 @@ module GCM
   private
 
   def self.prepare_and_send(n)
-    if n.device_tokens.count < 1 || n.device_tokens.count > 1000
+    if n.device_tokens.is_a?(Array) && (n.device_tokens.count < 1 || n.device_tokens.count > 1000)
       raise "Number of device_tokens invalid, keep it betwen 1 and 1000"
     end
     if !n.collapse_key.nil? && n.time_to_live.nil?
