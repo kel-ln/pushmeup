@@ -71,12 +71,16 @@ module GCM
       'Content-Type' => 'application/json',
     }
     body = {
-      :registration_ids => n.device_tokens,
       :data => n.data,
       :collapse_key => n.collapse_key,
       :time_to_live => n.time_to_live,
       :delay_while_idle => n.delay_while_idle
     }
+    if n.device_tokens.is_a?(Array)
+      body[:registration_ids] = n.device_tokens
+    elsif n.device_tokens.is_a?(String)
+      body[:to] = n.device_tokens
+    end
     return self.send_to_server(headers, body.to_json)
   end
 
