@@ -69,6 +69,7 @@ module GCM
     headers = {
       'Authorization' => "key=#{ self.key(n.identity) }",
       'Content-Type' => 'application/json',
+      'content_available' => true
     }
     body = {
       :data => n.data,
