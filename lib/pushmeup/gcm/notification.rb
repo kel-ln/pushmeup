@@ -68,7 +68,7 @@ module GCM
       delay_while_idle == that.delay_while_idle &&
       identity == that.identity && 
       notification == that.notification &&
-      priority == than.priority
+      priority == that.priority
     end
 
   end
