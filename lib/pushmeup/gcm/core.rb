@@ -76,6 +76,8 @@ module GCM
       :collapse_key => n.collapse_key,
       :time_to_live => n.time_to_live,
       :delay_while_idle => n.delay_while_idle,
+      notification: n.notification,
+      priority: n.priority,
     }
     if n.device_tokens.is_a?(Array)
       body[:registration_ids] = n.device_tokens
